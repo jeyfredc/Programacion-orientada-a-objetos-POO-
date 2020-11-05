@@ -439,3 +439,19 @@ Ya estás listo para resolver tu primer reto y poner en práctica todo lo que ap
 Toma como referencia nuestro Sistema de Adopciones e identifica todos los objetos.
 
 ![assets/35.png](assets/35.png)
+
+1. Existe la necesidad de adoptar un perro, para ello una persona se debe trasladar a las instalaciones fisicas por ejemplo de una fundacion de perros que permite la adopcion de perros
+
+2. Debe existir una persona disponible la cual atienda y muestre de manera fisica los perros que estan disponibles para adopcion
+
+3. Los perros estan disponibles para que la persona los vea y escoja cada uno de ellos 
+
+**Objetos**
+
+1. User -> Quien tiene la necesidad de adoptar al perro.
+
+2. Employee -> Persona encargada de hacer el tramite para hacer la adopcion del perro
+
+3. Dog -> El perro que se va a escoger para adoptar 
+
+
