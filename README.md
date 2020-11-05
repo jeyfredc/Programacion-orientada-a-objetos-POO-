@@ -18,7 +18,7 @@ Para resolver un problema como desarrollador es de gran utilidad dividirlo en su
 
 [Clase 7 UML](#Clase-7-UML)
 
-[]()
+[Clase 8 Objetos](#Clase-8-Objetos)
 
 []()
 
@@ -168,8 +168,6 @@ En la barra de Search Extensions escribe: **Java Extension Pack** y da clic en e
 
 Ahora, para tener una mejor experiencia en Debugging, instala el Debugger for Java, el cual encuentras siguiendo el procedimiento anterior.
 
-![assets/7.png](assets/7.png)
-
 Listo, terminamos con Java. Aprende más en este enlace: https://code.visualstudio.com/docs/languages/java
 
 Ahora vamos por Python.
@@ -299,3 +297,45 @@ Este es similar al anterior solo que su relación es totalmente compenetrada de 
 ![assets/24.png](assets/24.png)
 
 Con esto terminamos nuestro primer módulo. Vamos al siguiente para entender cómo podemos hacer un análisis y utilizar estos elementos para construir nuestro diagrama de clases de Uber.
+
+## Clase 8 Objetos
+
+Los Objetos son aquellos que tienen propiedades y comportamientos, también serán sustantivos.
+
+    - Pueden ser Físicos o Conceptuales
+
+![assets/25.png](assets/25.png)
+
+![assets/26.png](assets/26.png)
+
+Aca un ejemplo de caso de la vida real, un objeto de tipo User o usuario es algo que se puede tocar, que interactua, etc
+
+Un objeto conceptual puede ser una session o sesion de usuario, es algo que no se puede tocar pero si tiene comportamiento y atributos, como hacer login, logout, informar si el usuario esta creado o no, informar si la contraseña esta mal, etc
+
+![assets/27.png](assets/27.png)
+
+Las **Propiedades** también pueden llamarse atributos y estos también serán sustantivos. Algunos atributos o propiedades son nombre, tamaño, forma, estado, etc. Son todas las características del objeto.
+
+Para explicar mejor esto no quiere decir que el nombre Jeyfred Calderon sea propiamente el atributo, lo que realmente es el atributo de una clase es **nombre** o que el atributo sea grande, el atributo realmente es **tamaño**
+
+Los **Comportamientos** serán todas las operaciones que el objeto puede hacer, suelen ser verbos o sustantivos y verbo. Algunos ejemplos pueden ser que el usuario pueda hacer `login()` y `logout()`.
+
+**Aqui un ejeḿplo:**
+
+El objeto perro tiene propiedades que a continuacion se listan, pueden ser mas de las que representa la imagen
+
+![assets/28.png](assets/28.png)
+
+Ademas de tener estas propiedades o atributos tambien puede tener comportamientos
+
+![assets/29.png](assets/29.png)
+
+**otro ejemplo**
+
+Aqui existe un sistema de adopciones, donde la persona ve un catalogo de perros y quiere escoger cual de ellos se quiere llevar 
+
+El catalogo debe tener un identificador, el cual diferencia a uno de los perros de los demas porque pueden tener la misma raza, color, altura, etc, pero realmente el identificador es el que lo va a diferenciar del resto 
+
+En este contexto lo que realmente importa es que el perro sea adoptado por tal razon el comportamiento que se tendra es **ser adoptado** sin tener en cuenta los comportamientos del ejemplo anterior
+
+![assets/30.png](assets/30.png)
