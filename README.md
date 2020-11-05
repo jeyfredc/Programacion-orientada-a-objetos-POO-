@@ -1,4 +1,4 @@
-# POO PROGRAMACION ORIENTADA A OBJETOS 
+# Programacion orientada a objetos (POO)
 
 Análisis de los objetos, clases y métodos de la aplicación Uber
 
@@ -20,13 +20,13 @@ Para resolver un problema como desarrollador es de gran utilidad dividirlo en su
 
 [Clase 8 Objetos](#Clase-8-Objetos)
 
-[]()
+[Clase 9 Abstracción y Clases](#Clase-9-Abstracción-y-Clases)
 
-[]()
+[Clase 10 Modularidad](#Clase-10-Modularidad)
 
-[]()
+[Clase 11 Analizando Uber en Objetos](#Clase-11-Analizando-Uber-en-Objetos)
 
-[]()
+[Clase 12 Reto 1: identificando objetos](#Clase-12-Reto-1-identificando-objetos)
 
 []()
 
@@ -339,3 +339,103 @@ El catalogo debe tener un identificador, el cual diferencia a uno de los perros 
 En este contexto lo que realmente importa es que el perro sea adoptado por tal razon el comportamiento que se tendra es **ser adoptado** sin tener en cuenta los comportamientos del ejemplo anterior
 
 ![assets/30.png](assets/30.png)
+
+## Clase 9 Abstracción y Clases
+
+Una **Clase** es el modelo por el cual nuestros objetos se van a construir y nos van a permitir generar más objetos.
+
+Analizamos Objetos para crear **Clases**. Las **Clases** son los modelos sobres los cuales construiremos nuestros objetos.
+
+**Abstracción** es cuando separamos los datos de un objeto para generar un molde.
+
+En el ejemplo anterior se hablaba de un perro que tenia unas propiedades y unos comportamientos.
+
+Pero existen perros de diferentes razas, nombres, colores, etc.
+
+Para esto es la clase para definir de una forma general 
+
+![assets/31.png](assets/31.png)
+
+En este caso al perro, todos los perros cuentan con caracteristicas en comun como por ejemplo tener un nombre, raza, color, etc.
+
+Los objetos son elementos de nuestra realidad con los que interactuamos(pueden ser físicos o conceptuales).
+
+Los patrones o aspectos comunes que hallamos al observar objetos similares nos forman un concepto de lo que ese objeto representa para nosotros, como lo percibimos o representamos. La obtención las ideas principales o esencia común de los objetos analizados se llama abstracción; El concepto idealizado, generalizado de dichos objetos viene a ser representado por la “Clase”.
+
+La clase es un modelo del objeto, algo así como un sello o molde y los objetos serían como la estampa o elemento elaborado por el molde; Los objetos son ejemplares de una clase. Entendemos a estas “clases” como dos conjuntos de: atributos o propiedades y comportamientos. (Las clases son sustantivos)
+
+Los atributos (también son sustantivos, generalmente descriptivos) son características o propiedades, rasgos, adjetivos que definen al modelo. Por ejemplo, los atributos de una clase serian: id, nombre, raza, color; y los de un objeto serían: 101, Rocky, Dálmata, Blanco moteado negro.
+
+Los comportamientos también definen la clase o al objeto mediante acciones que puede realizar (por tanto, son verbos o sustantivo_verbo)
+
+El contexto es clave para realizar una abstracción útil que realmente ayude a resolver el problema planteado.
+
+## Clase 10 Modularidad
+
+La **modularidad** va muy relacionada con las clases y es un principio de la Programación Orientado a Objetos y va de la mano con el Diseño Modular que significa dividir un sistema en partes pequeñas y estas serán nuestros módulos pudiendo funcionar de manera independiente.
+
+Un ejemplo de modularidad es construir elementos a traves de modulos en distintas partes, generando cada elemento y luego unificandolo para construir un conjunto de elementos, si en dado caso se quisiera cambiar alguna parte de algun modulo se puede hacer y no tiene porque afectar al resto de los otros modulos
+
+![assets/32.png](assets/32.png)
+
+![assets/33.png](assets/33.png)
+
+La **modularidad** de nuestro código nos va a permitir
+
+- Reutilizar
+
+- Evitar colapsos
+
+- Hacer nuestro código más mantenible
+
+- Legibilidad
+
+- Resolución rápida de problemas
+
+Una buena práctica es separando las clases en archivos diferentes para generar modularidad.
+
+## Clase 11 Analizando Uber en Objetos
+
+Para resolver un problema es importante dividirlos en pequeños modulos y de aqui parte el problema a analizar de Uber  
+
+1. Todo parte de una necesidad, es necesario contar con un celular y querer trasladarse de un punto A a un B
+
+2. Se solicita un automovil y en la app se seleccion de que punto a que punto se va a trasladar 
+
+3. La app muestra un catalogo de servicios el cual cada uno de ellos tiene un costo por ser servicios diferentes
+
+    - Uber x
+
+    - Uber Pool
+
+    - Uber Black
+
+    - Uber Van
+
+4. Cuando se elige uno de los servicios, el usuario espera que lo recoja el automovil que decidio escoger para prestar el servicio y trasladar del punto A escogido por el usuario al punto B
+
+![assets/34.png](assets/34.png)
+
+Ahora lo que hay que realizar es empezar a abstraer los objetos 
+
+**Objetos**
+
+1. User -> Quien solicita al automovil
+
+2. Route -> Necesidad de trasladar de un punto A a un punto B
+
+3. 4 objetos que aparecen. Uber x, Uber Pool, Uber Black, Uber Van
+
+4. Driver -> El cual representa al conductor
+
+5. Card, Paypal, cash -> Las cuales representan la forma en que se va a pagar el servicio al estar completo y finalizado
+
+6. Trip -> Es de tipo conceptual y va a captar quien esta ejecutando el viaje, el lugar de recogida y entrega, ruta del mapa, etc
+
+## Clase 12 Reto 1: identificando objetos
+
+Ya estás listo para resolver tu primer reto y poner en práctica todo lo que aprendiste para identificar objetos en un problema.
+
+Toma como referencia nuestro Sistema de Adopciones e identifica todos los objetos.
+
+![assets/35.png](assets/35.png)
