@@ -28,7 +28,7 @@ Para resolver un problema como desarrollador es de gran utilidad dividirlo en su
 
 [Clase 12 Reto 1: identificando objetos](#Clase-12-Reto-1-identificando-objetos)
 
-[]()
+[Clase 13 Clases en UML y su sintaxis en código](#Clase-13-Clases-en-UML-y-su-sintaxis-en-código)
 
 []()
 
@@ -454,4 +454,22 @@ Toma como referencia nuestro Sistema de Adopciones e identifica todos los objeto
 
 3. Dog -> El perro que se va a escoger para adoptar 
 
+## Clase 13 Clases en UML y su sintaxis en código
 
+Una clase esta representada por un rectangulo como el que se presenta a continuacion y este esta compuesto por Identidad que es el nombre de la clase, el estado que son los atributos y el comportamiento que seran las funcionalidades de la clase
+
+![assets/36.png](assets/36.png)
+
+Aqui un ejemplo de clase. Se presenta la clase o objeto persona que como atributo tiene un nombre y el comportamiento o funcion es caminar
+
+![assets/37.png](assets/37.png)
+
+Estas son las formas de crear clases en los diferentes lenguajes de programacion.
+
+En la actualidad JavaScript tambien define sus clases con la palabra reservada **class**
+
+![assets/38.png](assets/38.png)
+
+creando en cada uno de los lenguajes es la forma como se construye la imagen
+
+![assets/39.png](assets/39.png)
