@@ -38,7 +38,7 @@ Para resolver un problema como desarrollador es de gran utilidad dividirlo en su
 
 [Clase 17 Reto 2: analicemos un problema](#Clase-17-Reto-2-analicemos-un-problema)
 
-[]()
+[Clase 18 Definiendo clases en Java y Python](#Clase-18-Definiendo-clases-en-Java-y-Python)
 
 []()
 
@@ -625,3 +625,123 @@ Despues con los animales clasificandolos como domesticos
 y los que son aves silvestres
 
 ![assets/54.png](assets/54.png)
+
+## Clase 18 Definiendo clases en Java y Python
+
+A continuacion sigue la etapa de programacion del proyecto Uber 
+
+Abrir la carpeta **CursoPOOUber/Java** y dentro de esta crear un archivo que se llame **Main.java**
+
+y alli agregar el siguiente codigo 
+
+```
+class Main {
+    
+    public static void main(String[] args) {
+        System.out.println("Hola Mundo");
+    }
+}
+```
+
+En caso de que no llegue a funcionar el compilador del codigo abrir la terminal y ubicar la carpeta. 
+
+En mi caso es **Cursos-platzi/POO/CursoPOOUber/Java** y despues ejecutar
+
+`java Main.java`
+
+![assets/55.png](assets/55.png)
+
+Esto se hace para realizar una prueba y ver que este ejecutando de manera correcta el codigo
+
+Dentro de la carpeta Java crear el archivo **Account.java** y para crear la clase debe llevar el mismo nombre del documento
+
+```
+class Account {
+    Integer id;
+    String name;
+    String document;
+    String email;
+    String password;
+}
+```
+
+Ahora se crea la siguiente clase, dentro de la carpeta Java crear el archivo **Car.java**
+
+```
+class Car{
+    Integer id;
+    String license;
+    String driver;
+    Integer passenger;
+}
+```
+
+la siguiente clase es Payment, dentro de la carpeta Java crear el archivo **Payment.java**
+
+```
+class Payment{
+    Integer id;
+}
+```
+
+Por ultimo se crea la clase Route, dentro de la carpeta Java crear el archivo **Route.java**
+
+```
+class Route {
+    Integer id;
+    ArrayList<Double> start;
+    ArrayList<Double> end;
+}
+```
+
+Ahora continua con la carpeta **Python** en **/Cursos-platzi/POO/CursoPOOUber/Python** y alli crear el archivo **main.py**
+
+```
+if __name__ == "__main__":
+    print("Hola mundo")
+```
+
+Nuevamente en la terminal ubicar la carpeta Python y ahora para ejecutar el archivo ejecutar
+
+`Python3 main.py`
+
+![assets/56.png](assets/56.png)
+
+Nuevamente se crean las clases para python.
+
+Dentro de la carpeta Python crear el archivo **account.py**
+
+```
+class Account:
+    id = int
+    name = str
+    document = str
+    email = str
+    password = str
+```
+
+Ahora se crea la siguiente clase, dentro de la carpeta Python crear el archivo **car.py**
+
+```
+class Car:
+    id = int
+    license = str
+    driver = str
+    passenger = int
+```
+
+la siguiente clase es Payment, dentro de la carpeta Python crear el archivo **payment.py*
+
+```
+class Payment:
+    id = int
+```
+
+Por ultimo se crea la clase Route, dentro de la carpeta Python crear el archivo **route.py**
+
+```
+class Route:
+    id = int
+    start = [] 
+    end = []
+```
