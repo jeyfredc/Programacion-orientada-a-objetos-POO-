@@ -30,7 +30,7 @@ Para resolver un problema como desarrollador es de gran utilidad dividirlo en su
 
 [Clase 13 Clases en UML y su sintaxis en código](#Clase-13-Clases-en-UML-y-su-sintaxis-en-código)
 
-[]()
+[Clase 14 Modelando nuestros objetos Uber](#Clase-14-Modelando-nuestros-objetos-Uber)
 
 []()
 
@@ -470,6 +470,59 @@ En la actualidad JavaScript tambien define sus clases con la palabra reservada *
 
 ![assets/38.png](assets/38.png)
 
-creando en cada uno de los lenguajes es la forma como se construye la imagen
+creando en cada uno de los lenguajes es la forma como se construye una clase con su atributo y metodo 
+
+**Nota:** la Sintaxis de JavaScript queda a continuacion de la imagen
 
 ![assets/39.png](assets/39.png)
+
+```
+class Person {
+  constructor() {
+    this.name = '';
+  }
+  walk() {...}
+}
+```
+
+## Clase 14 Modelando nuestros objetos Uber
+
+Los objetos analizados en la clase 12 donde se identificaron los objetos se establecio que eran los siguientes, cada uno de estos va estar compuesto por lo que esta a continuacion de la flecha -> y el ejemplo representa a la Ciudad de Mexico porque los vehiculos Uber black y Uber Van tienen requisitos mayores a los de la Ciudad de Bogotá
+
+**Objetos**
+
+User -> id, name, document, email, password
+Driver -> id, name, document, email, password
+
+**User y Driver** comparten los mismos tipos de atributos Id, nombre, documento de identificación, email y contraseña
+
+Route -> id, start:[], end:[]
+
+**Route** la ruta debe tener un identificador para la base de datos y debe tener una latitud por tal motivo se expresa un inicio con :[] y un fin
+
+Uber x -> id, license, driver, passengers, brand, model
+Uber Pool -> id, license, driver, passengers, brand, model
+
+**Uber x y Uber Pool** comparten atributos parecidos porque puede ser cualquier carro y modelo
+
+Uber Black -> id, license, driver, passengers, typeCarAccepted[], seatsMaterial[]
+Uber Van -> id, license, driver, passengers, typeCarAccepted[], seatsMaterial[]
+
+**Uber black y Uber Van** en las caracteristicas del servicio, aceptan un tipo de carro especial que esta clasificado en la [pagina](https://www.uber.com/mx/es/drive/mexico-city/vehicle-requirements/) y adicionalmente el requisito del material de los asientos es de piel y no puede ser cualquiera
+
+![assets/40.png](assets/40.png)
+
+Card -> id, number, cvv, date
+
+**Card** el objeto debe tener identificador, numero de tarjeta, el numero oculto de la tarjeta para autorizar transacciones y la fecha
+
+Paypal -> id, email
+
+**Paypal** solo requiere un identificador e email
+
+Cash  -> id
+
+**Cash** solo requiere el identificador porque no se tiene informacion de nada mas, para esto se tendra que establecer otro objeto
+
+![assets/41.png](assets/41.png)
+
