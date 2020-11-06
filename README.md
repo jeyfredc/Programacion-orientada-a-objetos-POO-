@@ -32,6 +32,28 @@ Para resolver un problema como desarrollador es de gran utilidad dividirlo en su
 
 [Clase 14 Modelando nuestros objetos Uber](#Clase-14-Modelando-nuestros-objetos-Uber)
 
+[Clase 15 ¿Qué es la herencia?](#Clase-15-¿Qué-es-la-herencia?)
+
+[]()
+
+[]()
+
+[]()
+
+[]()
+
+[]()
+
+[]()
+
+[]()
+
+[]()
+
+[]()
+
+[]()
+
 []()
 
 []()
@@ -526,4 +548,34 @@ Cash  -> id
 
 ![assets/41.png](assets/41.png)
 
-## Clase 
+## Clase 15 ¿Qué es la herencia?
+
+Al analizar el ejercicio de la clase anterior, se puede observar que hay propiedades que comparten propiedades o atributos. 
+
+Cuando existen estas redudancias es necesario implementar la herencia en las clases.
+
+**Don’t repeat yourself** es una filosofía que promueve la reducción de duplicación en programación, esto nos va a inculcar que no tengamos líneas de código duplicadas.
+
+Toda pieza de información nunca debería ser duplicada debido a que incrementa la dificultad en los cambios y evolución
+
+Es decir que no se debe repetir codigo porque esto hace que sea mucho mas complejo de entender y manejar, siempre se debe optar por reducir al minimo los bloques de codigo, en caso que una clase comparta similitudes con otra clase se puede utilizar la herencia.
+
+La **herencia** nos permite crear nuevas clases a partir de otras, se basa en modelos y conceptos de la vida real. También tenemos una jerarquía de **padre e hijo.**
+
+![assets/42.png](assets/42.png)
+
+Decir **padre e hijo** en programación se traduce a decir **Súperclase y Subclase**
+
+![assets/43.png](assets/43.png)
+
+En la siguiente imagen se puede observar que Futbolista, Entrenador y Masajista comparten los mismos atributos al igual que metodos los cuales son Concentrarse y Viajar, al dejar de esta forma cada una de las clases siginifica que mas adelante puede presentarse alguna forma y la idea es implementar la filosofia **Don’t repeat yourself**
+
+![assets/44.png](assets/44.png)
+
+Para solucionar este problema se crea una **Súperclase** la cual en la imagen a continuacion se llama **SeleccionFutbol**, que tiene los atributos y metodos que comparten cada una de las **Subclases**.
+
+Las **Subclases** en este caso deben heredar de la **Súperclase** y haciendo esto ademas de heredar, cada una puede implementar sus propios metodos
+
+Tambien es importante tener en cuenta que no es obligatorio que la **Subclase** herede todos los metodos de la **Súperclase**, es decir por ejemplo la clase Masajista puede heredar el metodo concentrarse y las Clases Futbolista y Entrenador pueden heredar de los metodos Concentrarse y Viajar
+
+![assets/45.png](assets/45.png)
