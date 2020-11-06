@@ -34,7 +34,7 @@ Para resolver un problema como desarrollador es de gran utilidad dividirlo en su
 
 [Clase 15 ¿Qué es la herencia?](#Clase-15-¿Qué-es-la-herencia?)
 
-[]()
+[Clase 16 Aplicando Herencia a nuestro proyecto Uber](#Clase-16-Aplicando-Herencia-a-nuestro-proyecto-Uber)
 
 []()
 
@@ -579,3 +579,25 @@ Las **Subclases** en este caso deben heredar de la **Súperclase** y haciendo es
 Tambien es importante tener en cuenta que no es obligatorio que la **Subclase** herede todos los metodos de la **Súperclase**, es decir por ejemplo la clase Masajista puede heredar el metodo concentrarse y las Clases Futbolista y Entrenador pueden heredar de los metodos Concentrarse y Viajar
 
 ![assets/45.png](assets/45.png)
+
+## Clase 16 Aplicando Herencia a nuestro proyecto Uber
+
+A traves del diagrama se va a detectar todos los atributos del proyecto Uber que estan repetidos o son redudantes
+
+![assets/46.png](assets/46.png)
+
+Todos los atributos de **User y Driver** son iguales por tanto se puede sacar una **Súperclase** padre llamada **Account**
+
+![assets/47.png](assets/47.png)
+
+Tambien se puede realizar la parte de pagos
+
+![assets/48.png](assets/48.png)
+
+y por ultimo la parte de los vehiculos Uber
+
+![assets/49.png](assets/49.png)
+
+Por ultimo este es el modelo simplificado del sitema Uber
+
+![assets/50.png](assets/50.png)
