@@ -526,3 +526,4 @@ Cash  -> id
 
 ![assets/41.png](assets/41.png)
 
+## Clase 
