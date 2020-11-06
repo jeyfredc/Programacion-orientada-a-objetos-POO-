@@ -36,7 +36,7 @@ Para resolver un problema como desarrollador es de gran utilidad dividirlo en su
 
 [Clase 16 Aplicando Herencia a nuestro proyecto Uber](#Clase-16-Aplicando-Herencia-a-nuestro-proyecto-Uber)
 
-[]()
+[Clase 17 Reto 2: analicemos un problema](#Clase-17-Reto-2-analicemos-un-problema)
 
 []()
 
@@ -601,3 +601,27 @@ y por ultimo la parte de los vehiculos Uber
 Por ultimo este es el modelo simplificado del sitema Uber
 
 ![assets/50.png](assets/50.png)
+
+## Clase 17 Reto 2: analicemos un problema
+
+Imagina que nuestro sistema de adopciones creció y ahora ofrece adoptar pericos, loros, gatos y hamsters.
+
+Genera un nuevo análisis, aplica herencia para abstraer mejor el problema y lograr modularidad en el software.
+
+- Lo primero que se hace es definir las clases u objetos que van a existir
+
+![assets/51.png](assets/51.png)
+
+Ahora se observa y se reduce todo a superclase determinando atributos en comun que puedan tener cada uno de los objetos
+
+primero se empiezan por las personas 
+
+![assets/52.png](assets/52.png)
+
+Despues con los animales clasificandolos como domesticos
+
+![assets/53.png](assets/53.png)
+
+y los que son aves silvestres
+
+![assets/54.png](assets/54.png)
