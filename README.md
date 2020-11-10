@@ -44,7 +44,7 @@ Para resolver un problema como desarrollador es de gran utilidad dividirlo en su
 
 [Clase 20 Objetos, método constructor y su sintaxis en código](#Clase-20-Objetos-método-constructor-y-su-sintaxis-en-código)
 
-[]()
+[Clase 21 Objetos. Dando vida a nuestras clases en Java y Python](#Clase-21-Objetos-Dando-vida-a-nuestras-clases-en-Java-y-Python)
 
 []()
 
@@ -945,3 +945,159 @@ la forma en la que se llaman los objetos para pasar parametros seria lo siguient
 **PHP**
 
 `$person = new Person("Jeyfred");`
+
+## Clase 21 Objetos. Dando vida a nuestras clases en Java y Python
+
+Abrir el archibos **Main.java** para empezar a instanciar cada una de las clases creadas en clase anteriores
+
+Aqui se hace instancia de la clase **Car**, para acceder a cada uno de sus atributos se usa el nombre del objeto seguido de un punto **car.** y el nombre del metodo, estos pueden ser accedidos porque el modificador de acceso en la clase es publico
+
+```
+class Main {
+    
+    public static void main(String[] args) {
+
+        Car car = new Car();
+        car.license = "AMQ123";
+        car.driver = "jeyfred Calderon";
+        car.passenger = 4;
+        System.out.println("Car License" + car.license);
+    }
+}
+```
+
+Y para crear otro objeto de la clase Car se hace de la misma forma
+
+```
+class Main {
+    
+    public static void main(String[] args) {
+        System.out.println("Hola Mundo");
+        Car car = new Car();
+        car.license = "AMQ123";
+        car.driver = "jeyfred Calderon";
+        car.passenger = 4;
+        System.out.println("Car License" + car.license);
+    }
+}
+```
+
+al instanciar otro objeto de la clase se agrega lo siguiente 
+
+```
+class Main {
+    
+    public static void main(String[] args) {
+        System.out.println("Hola Mundo");
+        Car car = new Car();
+        car.license = "AMQ123";
+        car.driver = "jeyfred Calderon";
+        car.passenger = 4;
+        System.out.println("Car License" + car.license);
+
+        Car car2 = new Car();
+        car2.license="JRM45E";
+        car2.driver="Andres Gonzalez";
+        car2.passenger = 3;
+        System.out.println("Car License" + car2.license);
+    }
+}
+```
+
+En caso que no funcione en la terminal ni tampoco en Vs Code se puede descargar el IDE de Java o Eclipse, en el caso de Ubuntu, tener en cuenta que se debe descargar JDK(Java Developer Kit) y JRE(Java Runtimes Environment) en las versiones actuales
+
+https://www.solvetic.com/tutoriales/article/8579-como-instalar-eclipse-ide-ubuntu-21-10-y-20-04/
+
+despues de ejectutar el archivo debe salir 
+
+Hola Mundo
+Jeyfred Calderon 
+Car License AMQ123
+Car License JRM45E
+
+![assets/57.png](assets/57.png)
+
+Esta es una forma de imprimir datos pero no es tan eficiente y hace que se deba colocar mas lineas de codigo por tanto existen los metodos.
+
+Abrir el archivo **Car.java**
+
+y añadir el metodo 
+
+```
+void printDataCar(){
+    System.out.println("License: " + license + " Driver: " + driver);
+}
+```
+![assets/58.png](assets/58.png)
+
+y nuevamente pasar al archivo **Main.java** para llamar al metodo en este caso se edita el archivo de la siguiente forma
+
+```
+class Main {
+    
+    public static void main(String[] args) {
+        System.out.println("Hola Mundo");
+        Car car = new Car();
+        car.license = "AMQ123";
+        car.driver = "jeyfred Calderon";
+        car.passenger = 4;
+        car.printDataCar();
+
+        Car car2 = new Car();
+        car2.license="JRM45E";
+        car2.driver="Andres Gonzalez";
+        car2.passenger = 3;
+        car2.printDataCar();
+    }
+}
+```
+
+al ejecutar el compilador van a aparecer los atributos que fueron declarados en el metodo de la clase y en **Main.java** lo que se esta llamando es al metodo de la clase 
+
+![assets/59.png](assets/59.png)
+
+Para realizar esto mismo con Python abrir **main.py**
+
+lo primero que se debe hacer es importar la clase con la siguiente sentencia **from car import Car** y despues realizar la instancia en este caso es mas facil llamar al objeto de la clase y declarar los atributos
+
+```
+from car import Car
+
+if __name__ == "__main__":
+    print("Hola mundo")
+    
+    car = Car()
+    car.license = "JRM45E"
+    car.driver = "Jeyfred Calderon"
+    print(vars(car))
+
+```
+
+Para imprimir los datos se abre la terminal y se ejecuta 
+
+`Python3 main.py`
+
+![assets/60.png](assets/60.png)
+
+Si se quiere crear el otro objeto 
+
+```
+from car import Car
+
+if __name__ == "__main__":
+    print("Hola mundo")
+
+    car = Car()
+    car.license = "JRM45E"
+    car.driver = "Jeyfred Calderon"
+    print(vars(car))
+
+    car2 =Car()
+    car2.license = "AMQ123"
+    car2.driver= "Andres Gonzalez"
+    print(vars(car2))
+```
+
+y luego ejecutar en la terminal
+
+![assets/61.png](assets/61.png)
