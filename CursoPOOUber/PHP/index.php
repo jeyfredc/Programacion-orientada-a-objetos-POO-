@@ -1,7 +1,7 @@
 <?php
 
-require_once("Car.php");
-require_once("Account.php");
+require_once("car.php");
+require_once("account.php");
 
 $car = new Car("JRM45E", new Account("Jeyfred Calderon", "JCC1004"));
 $car->printDataCar();

@@ -50,6 +50,12 @@ Para resolver un problema como desarrollador es de gran utilidad dividirlo en su
 
 [Clase 23 Declarando un Método Constructor en Python](#Clase-23-Declarando-un-Método-Constructor-en-Python)
 
+[Clase 24 Aplicando herencia en lenguaje Java y PHP](#Clase-24-Aplicando-herencia-en-lenguaje-Java-y-PHP)
+
+[]()
+
+[]()
+
 []()
 
 []()
@@ -57,6 +63,27 @@ Para resolver un problema como desarrollador es de gran utilidad dividirlo en su
 []()
 
 []()
+
+[]()
+
+[]()
+
+[]()
+
+[]()
+
+[]()
+
+[]()
+
+[]()
+
+[]()
+
+[]()
+
+[]()
+
 
 ## Clase 1 ¿Por qué aprender Programación Orientada a Objetos?
 
@@ -1429,3 +1456,126 @@ Los resultados serán los siguientes:
 **Nota:** como reto queda pendiente por completar las otras clases de JavaScript y de PHP.
 
 Cualquier duda se pueden observar los archivos en el repositorio
+
+## Clase 24 Aplicando herencia en lenguaje Java y PHP
+
+Cada uno de los lenguajes tiene una forma de heredar de una clase padre, en su mayoria la forma en la que heredan es similar y lo que quiere decir en los ejemplos a continuacion es que la clase estudiante hereda de una clase superior que seria la clase persona y estudiante puede adquirir o no atributos de la clase Persona
+
+**Java**
+
+`class Student extends Person`
+
+**JavaScript**
+
+`class Student extends Person`
+
+**Python**
+
+`class Student(Person):`
+
+**PHP**
+
+`class Student extends Person`
+
+Dentro de la carpeta Java crear los objetos que van a heredar de la clase Car los cuales seran
+
+- **UberX.java**
+
+Los atributos de la clase como ya se habia definido en el diagrama UML que va a llevar la clase UberX era `brand` y `model`, asi que lo primero que se hace es crear los atributos, seguido de esto va el metodo constructor pero como esta extendiendo o heredado de la clase Car debe tener los mismos parametros del metodo constructor de la clase Car que eran `license` y `driver`, seguido de esto los atributos que se quieran colocar de la clase UberX, lo importante es que el metodo constructor obtenga los mismos parametros de la clase padre y para hacer referencia a que esta heredando de la clase padre se agrega debajo la sintaxis `super(license, driver)`
+
+```
+class UberX extends Car {
+    String brand;
+    String model;
+
+    public UberX(String license, Account driver, String brand, String model){
+        super(license, driver);
+        this.brand;
+        this.model;
+
+    }
+}
+```
+
+-  **UberPool.java**
+
+```
+class UberPool extends Car {
+    String brand;
+    String model;
+
+    public UberPool(String license, Account driver, String brand, String model){
+        super(license, driver);
+        this.brand;
+        this.model;
+
+    }
+}
+```
+
+- **UberBlack.java**
+
+Para el UberBlack es necesario utilizar dos funciones de la libreria **java.util** para poder importar el ArrayList y el Map y de esta forma pasar los atributos a la clase
+
+```
+
+import java.util.ArrayList;
+import java.util.Map;
+
+class UberBlack extends Car{
+    Map<String, ArrayList<String,Integer>> typeCarAccepted;
+    ArrayList<String> seatsMaterial;
+
+    public UberBlack(String license, Account driver, Map<String, ArrayList<String,Integer>> typeCarAccepted, ArrayList<String> seatsMaterial){
+        super(license, driver);
+        this.typeCarAccepted;
+        this.seatsMaterial;
+    }
+}
+```
+
+- **UberVan.java**
+
+```
+import java.util.ArrayList;
+import java.util.Map;
+
+class UberVan extends Car{
+    Map<String, ArrayList<String,Integer>> typeCarAccepted;
+    ArrayList<String> seatsMaterial;
+
+    public UberVan(String license, Account driver, Map<String, ArrayList<String,Integer>> typeCarAccepted, ArrayList<String> seatsMaterial){
+        super(license, driver);
+        this.typeCarAccepted;
+        this.seatsMaterial;
+    }
+}
+```
+
+___
+
+Ahora se va a realizar lo mismo con **PHP** ubicarse en la carpeta de **PHP** y crear lo siguiente
+
+- **uberX.php**
+
+La forma de extender de PHP como se habia visto anteriormente es muy similar a la de **Java**, la sintaxis es un poco diferente pero no deja de tener casi que el mismo concepto que maneja Java y en vez de traer a la super clase con la sintaxis `super(license,driver);` la trae de la siguiente forma `parent::__construct($license, $driver);`
+
+la forma de importar clases en PHP es con require_once para obtener mas informacion consultar [aqui](https://github.com/jeyfredc/Curso-de-PHP#Clase-16-Agregando-archivos-externos)
+
+```
+<?php
+require_once('car.php');
+class UberX extends Car{
+    public $brand;
+    public $model;
+
+    public function __construct($license, $driver, $brand, $model){
+        parent::__construct($license, $driver);
+        $this->brand = $brand;
+        $this->model = $model;
+    }
+}
+```
+
+**reto:** terminar el resto de clases de PHP
+
