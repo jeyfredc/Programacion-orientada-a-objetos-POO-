@@ -3,12 +3,12 @@ class Main {
     
     public static void main(String[] args) {
         System.out.println("Hola Mundo");
-        Car car = new Car("AMQ123", new Account("Jeyfred Calderon", "JCC1004"));
-        car.passenger = 4;
-        car.printDataCar();
+        UberX uberX = new UberX("AMQ123", new Account("Jeyfred Calderon", "JCC1004"), "Chevrolet", "Spark");
+        uberX.passenger = 3;
+        uberX.printDataCar();
 
-        Car car2 = new Car("JRM45E", new Account("Andrez Gonzalez", "ANDD123"));
+        /* Car car2 = new Car("JRM45E", new Account("Andrez Gonzalez", "ANDD123"));
         car2.passenger = 3;
-        car2.printDataCar();
+        car2.printDataCar(); */
     }
 }

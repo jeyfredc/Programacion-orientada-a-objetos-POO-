@@ -60,7 +60,7 @@ Para resolver un problema como desarrollador es de gran utilidad dividirlo en su
 
 [Clase 28 Reto 4](#Clase-28-Reto-4)
 
-[]()
+[Clase 29 Encapsulamiento](#Clase-29-Encapsulamiento)
 
 []()
 
@@ -1490,8 +1490,8 @@ class UberX extends Car {
 
     public UberX(String license, Account driver, String brand, String model){
         super(license, driver);
-        this.brand;
-        this.model;
+        this.brand = brand;
+        this.model = model;
 
     }
 }
@@ -1506,8 +1506,8 @@ class UberPool extends Car {
 
     public UberPool(String license, Account driver, String brand, String model){
         super(license, driver);
-        this.brand;
-        this.model;
+        this.brand = brand;
+        this.model = model;
 
     }
 }
@@ -1528,8 +1528,8 @@ class UberBlack extends Car{
 
     public UberBlack(String license, Account driver, Map<String, ArrayList<String,Integer>> typeCarAccepted, ArrayList<String> seatsMaterial){
         super(license, driver);
-        this.typeCarAccepted;
-        this.seatsMaterial;
+        this.typeCarAccepted = typeCarAccepted;
+        this.seatsMaterial = seatsMaterial;
     }
 }
 ```
@@ -1546,8 +1546,8 @@ class UberVan extends Car{
 
     public UberVan(String license, Account driver, Map<String, ArrayList<String,Integer>> typeCarAccepted, ArrayList<String> seatsMaterial){
         super(license, driver);
-        this.typeCarAccepted;
-        this.seatsMaterial;
+        this.typeCarAccepted = typeCarAccepted;
+        this.seatsMaterial = seatsMaterial;
     }
 }
 ```
@@ -1729,7 +1729,7 @@ class UberX(Car):
 
 
     def __init__(self, license, driver, brand, model):
-        super.__init__(license, driver)
+        super().__init__(license, driver)
         self.brand = brand
         self.model = model
 ```
@@ -1745,7 +1745,7 @@ class UberPool(Car):
 
 
     def __init__(self, license, driver, brand, model):
-        super.__init__(license, driver)
+        super().__init__(license, driver)
         self.brand = brand
         self.model = model
 ```
@@ -1760,7 +1760,7 @@ class UberBlack(Car):
     seatsMaterial = []
 
     def __init__(self, license, driver, typeCarAccepted, seatsMaterial):
-        super.__init__(license,driver)
+        super().__init__(license,driver)
         self.typeCarAccepted = typeCarAccepted
         self.seatsMaterial = seatsMaterial
 ```
@@ -1775,7 +1775,7 @@ class UberVan(Car):
     seatsMaterial = []
 
     def __init__(self, license, driver, typeCarAccepted, seatsMaterial):
-        super.__init__(license,driver)
+        super().__init__(license,driver)
         self.typeCarAccepted = typeCarAccepted
         self.seatsMaterial = seatsMaterial
 ```
@@ -1892,3 +1892,80 @@ Nos queda la Jerarquía Account pendiente.
 Tomando como referencia nuestros diagramas. Plásmala en tu lenguaje de programación favorito.
 
 ![assets/73.png](assets/73.png)
+
+## Clase 29 Encapsulamiento
+
+A continuacion abrir el archivo **Main.java** y modificar con lo siguiente
+
+```
+
+class Main {
+    
+    public static void main(String[] args) {
+        System.out.println("Hola Mundo");
+        UberX uberX = new UberX("AMQ123", new Account("Jeyfred Calderon", "JCC1004"), "Chevrolet", "Spark");
+        uberX.passenger = 4;
+        uberX.printDataCar();
+
+        /* Car car2 = new Car("JRM45E", new Account("Andrez Gonzalez", "ANDD123"));
+        car2.passenger = 3;
+        car2.printDataCar(); */
+    }
+}
+```
+Modificar el archivo **Car.java**
+
+```
+class Car {
+    Integer id;
+    String license;
+    Account driver;
+    Integer passenger;
+
+    public Car(String license, Account driver){
+        this.license = license;
+        this.driver = driver;
+        
+    }
+
+    void printDataCar(){
+        System.out.println("License: " + license + " Driver: " + driver.name + "Passenger: " + passenger);
+    }
+
+}
+
+```
+
+Si se corre el programa ahora va a aparecer el objeto uberX con todos los datos que se estan pasando por parametro y en este caso se modifico el metodo printDataCar para que ahora al imprimir los datos traiga el numero de pasajeros los cuales son 4 
+
+![assets/74.png](assets/74.png)
+
+Pero ahora si se modifica el numero de pasajeros por 3, esto es lo que va a imprimir
+
+![assets/75.png](assets/75.png)
+
+Los pasajeros no se deberian poder modificar porque lo maximo que lleva un uberX son 4 pasajeros ademas del conductor
+
+Como este parametro no se quiere que se pueda modificar lo que se va a hacer es aplicar **Encapsulamiento**
+
+El **Encapsulamiento** es hacer que un dato sea inviolable, inalterable cuando se le asigne un modificador de acceso.
+
+los modificadores de acceso son los siguientes
+
+- public, el cual tiene acceso a todas las Clases
+
+- protected, tiene acceso a Clases, Paquetes y SubClases
+
+- default, tiene acceso a Clases y Paquetes
+
+- private, tiene acceso solo a las Clases   
+
+Los beneficios del encapsulamiento son:
+
+- Controlar la manera en que los datos son accedidos o modificados
+
+- El código es mas flexible y fácil de cambiar a partir de nuevos requerimientos
+
+- Poder modificar una parte del código sin afectar otras partes del mismo
+
+- Ayuda a mantener la integridad de los datos
