@@ -56,9 +56,9 @@ Para resolver un problema como desarrollador es de gran utilidad dividirlo en su
 
 [Clase 26 Aplicando herencia en lenguaje Python y JavaScript](#Clase-26-Aplicando-herencia-en-lenguaje-Python-y-JavaScript)
 
-[]()
+[Clase 27 Otros tipos de Herencia](#Clase-27-Otros-tipos-de-Herencia)
 
-[]()
+[Clase 28 Reto 4](#Clase-28-Reto-4)
 
 []()
 
@@ -1868,3 +1868,27 @@ uberX.printDataCar();
 El resultado en la consola del navegador es el siguiente
 
 ![assets/71.png](assets/71.png)
+
+## Clase 27 Otros tipos de Herencia
+
+A partir de ahora las clases que estén siendo heredades las llamaremos familias.
+
+Acabamos de aplicar herencia a la familia **Car**. Ahora apliquémosla a la familia **Payment**.
+
+En clases anteriores te mencioné que otro punto de partida que puedes tomar para aplicar herencia es del hecho de que hay clases que lógicamente deberían estar en una familia, como es el caso de Payment.
+
+Repasemos el diagrama de Payment
+
+![assets/72.png](assets/72.png)
+
+Notarás que a nivel de código parece inservible pero cuando estemos en el caso de uso Pagar un Viaje, probablemente en ese momento no sabremos cuál es el método de pago, y necesitemos ingresar un dato lo suficientemente genérico que conceptualmente nos dé la información que necesitamos, en este caso que es un Payment. Este es un tipo de Polimorfismo y uno de los principios SOLID del software que obedece a la Inyección de Dependencias. Lo veremos más adelante a detalle.
+
+Ahora nos faltará crear las clases y aplicar su herencia.
+
+## Clase 28 Reto 4
+
+Nos queda la Jerarquía Account pendiente.
+
+Tomando como referencia nuestros diagramas. Plásmala en tu lenguaje de programación favorito.
+
+![assets/73.png](assets/73.png)
