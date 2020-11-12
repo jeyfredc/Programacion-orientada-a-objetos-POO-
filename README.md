@@ -62,7 +62,7 @@ Para resolver un problema como desarrollador es de gran utilidad dividirlo en su
 
 [Clase 29 Encapsulamiento](#Clase-29-Encapsulamiento)
 
-[]()
+[Clase 30 Encapsulando atributos en Java](#Clase-30-Encapsulando-atributos-en-Java)
 
 []()
 
@@ -1969,3 +1969,233 @@ Los beneficios del encapsulamiento son:
 - Poder modificar una parte del código sin afectar otras partes del mismo
 
 - Ayuda a mantener la integridad de los datos
+
+## Clase 30 Encapsulando atributos en Java
+
+Abrir el archivo **Car.java**, donde se agrega el modificador de acceso `private`
+
+cuando los atributos estan de esta forma tiene el modificador de acceso `default` asi no este escrito este esta por default y tiene acceso a las Clases y Paquetes
+
+```
+class Car {
+    Integer id;
+    String license;
+    Account driver;
+    Integer passenger;
+```
+
+Como los `passengers` no se quiere que se modifiquen se coloca el modificador de acceso `private`
+
+```
+class Car {
+    Integer id;
+    String license;
+    Account driver;
+    private Integer passenger;
+```
+
+al intentar correr el programa va a marcar un error que indica que el campo passenger no es visible
+
+![assets/76.png](assets/76.png)
+
+nuevamente en el archivo **Car.java** se hace una modificacion para que se haga visible el numero de pasajeros
+
+```
+class Car {
+    Integer id;
+    String license;
+    Account driver;
+    private Integer passenger;
+
+    public Car(String license, Account driver){
+        this.license = license;
+        this.driver = driver;
+        passenger = 3;
+        System.out.println("Passenger: " + passenger);
+    }
+
+    void printDataCar(){
+        System.out.println("License: " + license + " Driver: " + driver.name);
+    }
+
+}
+```
+
+y en el archivo **Main.java** se comenta esta linea `/* uberX.passenger = 3; */`, y se ejecuta el programa se obtiene el siguiente resultado
+
+![assets/77.png](assets/77.png)
+
+y si se descomenta la linea `/* uberX.passenger = 3; */` y ahora se pasa por 4 pasajeros va a volver a aparecer un error
+
+![assets/78.png](assets/78.png)
+
+**Nota:** hay que tener en cuenta que todos los carros tienen espacio para distintos tipos de pasajeros, el caso de uberX es 4, uberPool otra cantidad, uberBlack 4 pasajeros y uberVan son 6 pasajeros. El atributo `Passenger` en el momento se encuentra privado y las clases UberBlack, UberPool, UberX y UberVan estan heredando de la clase Car.
+
+Ahora llega el concepto de los metodos Getters y Setters, los cuales son metodos que estan implementados en la mayoria de lenguajes y estos si permiten acceder a los datos del atributo 
+
+**Get** obtiene el dato
+
+**Set** Asigna un dato
+
+Para hacer esto se crean los metodos en la clase Car 
+
+primero se escribe `public` esto es para que se pueda acceder por fuera de la clase Car, seguido de `Integer` que es el tipo de dato que va a obtener y luego se nombra el metodo que en este caso es `getPassenger()` despues se abren corchetes y se retorna el atributo `return Passennger`
+
+```
+    public Integer getPassenger(){
+        return passenger;
+    }
+```
+
+Ahora se pasa a la asignacion se escribe `public` nuevamente para que el metodo pueda ser accedido por otras clases, seguido de `void` que indica vacio, es decir que al acceder desde otra clase y al asignar por defecto el metodo este vacio y se pueda asignar otro valor, luego  se nombra al metodo `setPassenger` que es el que va a hacer la asignacion y luego en los parametros se recibe el dato que luego se va a asignar `(Integer passenger)` seguido de corchetes, dentro de los corchetes se re asigna el atributo
+
+```
+    public void setPassenger(Integer passenger){
+        this.passenger = passenger;
+    }
+```
+
+la clase **Car.java** queda asi 
+
+```
+class Car {
+    Integer id;
+    String license;
+    Account driver;
+    private Integer passenger;
+
+    public Car(String license, Account driver){
+        this.license = license;
+        this.driver = driver;
+    }
+
+    void printDataCar(){
+        System.out.println("License: " + license + " Driver: " + driver.name + " Passenger: " + passenger);
+    }
+
+    public Integer getPassenger(){
+        return passenger;
+    }
+
+    public void setPassenger(Integer passenger){
+        this.passenger = passenger;
+    }
+
+}
+
+```
+
+y nuevamente en el archivo **Main.java** se puede hacer una asignacion de los pasajeros que se requieran modificando a traves del metodo 
+
+```
+
+class Main {
+    
+    public static void main(String[] args) {
+        System.out.println("Hola Mundo");
+        UberX uberX = new UberX("AMQ123", new Account("Jeyfred Calderon", "JCC1004"), "Chevrolet", "Spark");
+        uberX.setPassenger(4);
+        uberX.printDataCar();
+
+        /* Car car2 = new Car("JRM45E", new Account("Andrez Gonzalez", "ANDD123"));
+        car2.passenger = 3;
+        car2.printDataCar(); */
+    }
+}
+```
+
+si se ejecuta el programa se imprime lo siguiente
+
+![assets/79.png](assets/79.png)
+
+y si el parametro se cambia a 3 van a salir 3 pasajeros
+
+![assets/80.png](assets/80.png)
+
+Para evitar que esto pase en la clase **Car.java** se agrega una validacion a traves del condicional `if else`
+
+```
+class Car {
+    Integer id;
+    String license;
+    Account driver;
+    private Integer passenger;
+
+    public Car(String license, Account driver){
+        this.license = license;
+        this.driver = driver;
+    }
+
+    void printDataCar(){
+        System.out.println("License: " + license + " Driver: " + driver.name + " Passenger: " + passenger);
+    }
+
+    public Integer getPassenger(){
+        return passenger;
+    }
+
+    public void setPassenger(Integer passenger){
+        if(passenger == 4){
+            this.passenger = passenger;
+        }
+        else{
+            System.out.println("Necesitas asignar 4 pasajeros");
+        }
+    }
+
+}
+
+```
+
+Si nuevamente se setea el metodo con 3, a continuacion va a salir el mensaje de validacion
+
+![assets/81.png](assets/81.png)
+
+si se asignan 4 simplemente saldra la informacion de los 4 pasajeros 
+
+![assets/82.png](assets/82.png)
+
+Tambien se puede agregar una validacion mas para no imprimir los datos si los pasajeros no estan completos en el archivo **Car.java** pero en el metodo `printDataCar()`
+
+```
+class Car {
+    Integer id;
+    String license;
+    Account driver;
+    private Integer passenger;
+
+    public Car(String license, Account driver){
+        this.license = license;
+        this.driver = driver;
+    }
+
+    void printDataCar(){
+        if(passenger != null ){
+        System.out.println("License: " + license + " Driver: " + driver.name + " Passenger: " + passenger);
+        }
+    }
+
+    public Integer getPassenger(){
+        return passenger;
+    }
+
+    public void setPassenger(Integer passenger){
+        if(passenger == 4){
+            this.passenger = passenger;
+        }
+        else{
+            System.out.println("Necesitas asignar 4 pasajeros");
+        }
+    }
+
+}
+
+```
+
+Al imprimir con 3 pasajeros solo saldra lo siguiente
+
+![assets/83.png](assets/83.png)
+
+y si nuevamente se pasan los 4 pasajeros, todos los datos se deberan imprimir
+
+![assets/84.png](assets/84.png)
