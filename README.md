@@ -54,7 +54,7 @@ Para resolver un problema como desarrollador es de gran utilidad dividirlo en su
 
 [Clase 25 Solución del reto de herencia en PHP](#Clase-25-Solución-del-reto-de-herencia-en-PHP)
 
-[]()
+[Clase 26 Aplicando herencia en lenguaje Python y JavaScript](#Clase-26-Aplicando-herencia-en-lenguaje-Python-y-JavaScript)
 
 []()
 
@@ -1710,3 +1710,161 @@ $uberPool -> printDataCar();
 El resultado obtenido 
 
 ![assets/70.png](assets/70.png)
+
+## Clase 26 Aplicando herencia en lenguaje Python y JavaScript
+
+**Python**
+___
+
+Recuerdas que en Python la herencia se expresa de manera muy similar a un método constructor de otros lenguajes. Apliquemos herencia para nuestra familia Car, para esto crearemos las siguientes clases:
+
+- **uberX.py**
+
+```
+from car import Car
+
+class UberX(Car):
+    brand = str
+    model = str
+
+
+    def __init__(self, license, driver, brand, model):
+        super.__init__(license, driver)
+        self.brand = brand
+        self.model = model
+```
+
+- **uberPool.py**
+
+```
+from car import Car
+
+class UberPool(Car):
+    brand = str
+    model = str
+
+
+    def __init__(self, license, driver, brand, model):
+        super.__init__(license, driver)
+        self.brand = brand
+        self.model = model
+```
+
+- **uberBlack.py**
+
+```
+from car import Car
+
+class UberBlack(Car):
+    typeCarAccepted = []
+    seatsMaterial = []
+
+    def __init__(self, license, driver, typeCarAccepted, seatsMaterial):
+        super.__init__(license,driver)
+        self.typeCarAccepted = typeCarAccepted
+        self.seatsMaterial = seatsMaterial
+```
+
+- **uberVan.py**
+
+```
+from car import Car
+
+class UberVan(Car):
+    typeCarAccepted = []
+    seatsMaterial = []
+
+    def __init__(self, license, driver, typeCarAccepted, seatsMaterial):
+        super.__init__(license,driver)
+        self.typeCarAccepted = typeCarAccepted
+        self.seatsMaterial = seatsMaterial
+```
+___
+
+**JavaScript**
+___
+
+En clases anteriores te expliqué cómo ejecutar herencia en estándares anteriores al EcmaScript 6. Uno de los beneficios de utilizar este nuevo estándar que ejecutar herencia es tan simple como utilizar la palabra reservada extends.
+
+- **UberX.js**
+
+```
+class UberX extends Car {
+    constructor(license, driver, brand, model){
+        super(license, driver)
+        this.brand = brand;
+        this.model = model;
+    }
+}
+```
+
+- **UberPool.js**
+
+```
+class UberPool extends Car {
+    constructor(license, driver, brand, model){
+        super(license, driver)
+        this.brand = brand;
+        this.model = model;
+    }
+}
+```
+
+- **UberBlack.js**
+
+```
+class UberBlack extends Car {
+    constructor(license, driver, typeCarAccepted, seatsMaterial){
+        super(license, driver)
+        this.typeCarAccepted = typeCarAccepted;
+        this.seatsMaterial = seatsMaterial;
+    }
+}
+```
+
+- **UberVan.js**
+
+```
+class UberVan extends Car {
+    constructor(license, driver, typeCarAccepted, seatsMaterial){
+        super(license, driver)
+        this.typeCarAccepted = typeCarAccepted;
+        this.seatsMaterial = seatsMaterial;
+    }
+}
+```
+
+Ahora para utilizar una de las clases y crear un objeto, por ejemplo de UberX, no olvides declarar la clase en el archivo **index.html**.
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Programacion Orientada a Objetos en JavaScript</h1>
+</body>
+<script src="Account.js"></script>
+<script src="Car.js"></script>
+<script src="UberX.js"></script>
+<script src="index.js"></script>
+</html>
+```
+
+y ahora modificar **index.js**
+
+```
+var car = new Car("AMQ123", new Account("Jeyfred Calderon", "JCC1004"))
+car.passenger = 4;
+car.printDataCar();
+
+var uberX = new UberX("JRM45E", new Account("Andres Gonzalez", "ANDD123"), "Dodge", "Attitude")
+uberX.passenger = 4;
+uberX.printDataCar();
+```
+El resultado en la consola del navegador es el siguiente
+
+![assets/71.png](assets/71.png)
