@@ -46,9 +46,9 @@ Para resolver un problema como desarrollador es de gran utilidad dividirlo en su
 
 [Clase 21 Objetos. Dando vida a nuestras clases en Java y Python](#Clase-21-Objetos-Dando-vida-a-nuestras-clases-en-Java-y-Python)
 
-[]()
+[Clase 22 Declarando un Método Constructor en Java y JavaScript](#Clase-22-Declarando-un-Método-Constructor-en-Java-y-JavaScript)
 
-[]()
+[Clase 23 Declarando un Método Constructor en Python](#Clase-23-Declarando-un-Método-Constructor-en-Python)
 
 []()
 
@@ -1101,3 +1101,331 @@ if __name__ == "__main__":
 y luego ejecutar en la terminal
 
 ![assets/61.png](assets/61.png)
+
+## Clase 22 Declarando un Método Constructor en Java y JavaScript
+
+Ahora con el lenjuage **Java** se van a empezar a contruir en cada una de las clases el metodo constructor, para esto abrir **Car.java** y colocar el metodo **public Car()**, lo que va dentro de los parentesis son los parametros los cuales van a obligar que para que sea creado un objeto **Car** debe contener los mismos parametros del metodo constructor, estos parametros obligatorios seran la licencia y el conductor, como estaba el diagrama se habia indicado que Car heredaba de la clase Account por tanto se cambia la palabra String por Account
+
+```
+class Car {
+    Integer id;
+    String license;
+    Account driver;
+    Integer passenger;
+
+    public Car(String license, Account driver){
+        this.license = license;
+        this.driver = driver;
+
+    }
+
+    void printDataCar(){
+    System.out.println("License: " + license + " Driver: " + driver);
+    }
+
+}
+```
+**Nota:** el nombre de license y driver que esta en los parametros puede tener cualquier tipo de nombre, es decir se podria llamar license2 y driver2, si se hiciera asi no habria necesidad de colocar **this.** quedaria de la siguiente forma `license = license2;`, pero es una mala practicar realizarlo de esta forma y por tanto en la mayoria de los casos se va a encontrar como la estructura del metodo, indicando que **this.** hace referencia a la clase, es decir a la clase Car
+
+```
+    public Car(String license, Account driver){
+        this.license = license;
+        this.driver = driver;
+
+    }
+```
+
+Si no se modifica nada mas el programa no se va a ejecutar porque ya se pasaron unos parametros para el metodo constructor de la clase Car y es que es obligatorio pasar la licencia y el conductor
+
+![assets/62.png](assets/62.png)
+
+en la parte de abajo se indica que el constructor de la clase Car no esta definida, ahora se debe pasar los parametros obligatorios al objeto car que es la licencia y el conductor.
+
+```
+
+class Main {
+    
+    public static void main(String[] args) {
+        System.out.println("Hola Mundo");
+        Car car = new Car("AMQ123", );
+
+        car.driver = ;
+        car.passenger = 4;
+        car.printDataCar();
+
+        Car car2 = new Car("JRM45E");
+        car2.driver="Andres Gonzalez";
+        car2.passenger = 3;
+        car2.printDataCar();
+    }
+}
+```
+
+Todavia no funciona porque no se ha creado un metodo constructor para la clase **Account.java** por tanto se crea el metodo constructor con los parametros que se consideren necesarios
+
+```
+class Account {
+    Integer id;
+    String name;
+    String document;
+    String email;
+    String password;
+
+    public Account(String name, String document){
+        this.name = name;
+        this.document = document;
+    }
+}
+```
+ 
+Nuevamente se modifica **Main.java**, ahora si se pueden pasar el parametro que hace falta de la siguiente forma
+
+```
+class Main {
+    
+    public static void main(String[] args) {
+        System.out.println("Hola Mundo");
+        Car car = new Car("AMQ123", , new Account("Jeyfred Calderon", "JCC1004"));
+        car.passenger = 4;
+        car.printDataCar();
+
+        Car car2 = new Car("JRM45E", new Account("Andrez Gonzalez", "ANDD123"));
+        car2.passenger = 3;
+        car2.printDataCar();
+    }
+}
+```
+
+Falta algo mas por corregir, si se ejecuta por el momento solo se va a imprimir esto y no esta trayendo los datos de manera correcta
+
+![assets/63.png](assets/63.png)
+
+Para corregir los datos de Driver hay que abrir el archivo **Car.java** y añadir el atributo name a driver en el metodo **printDataCar**
+
+```
+class Car {
+    Integer id;
+    String license;
+    Account driver;
+    Integer passenger;
+
+    public Car(String license, Account driver){
+        this.license = license;
+        this.driver = driver;
+        
+    }
+
+    void printDataCar(){
+        System.out.println("License: " + license + " Driver: " + driver.name);
+    }
+
+}
+```
+
+Ejecutar **Main.java** nuevamente para que ahora si se muestren los datos
+
+![assets/64.png](assets/64.png)
+
+___
+
+Ahora se va a realizar lo mismo con JavaScript
+
+En el folder **JS** crear un archivo que se llame **index.html** 
+
+el cual contendra lo siguiente
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Programacion Orientada a Objetos en JavaScript</h1>
+</body>
+<script src="Account.js"></script>
+<script src="Car.js"></script>
+<script src="index.js"></script>
+</html>
+```
+
+Anteriormente en JavaScript esta era la forma de crear el metodo constructor. Empezando por el archivo **Car.js**
+
+```
+function Car (license, driver) {
+    this.id;
+    this.license = license;
+    this.driver = driver;
+    this.passenger;
+    
+}
+
+Car.prototype.printDataCar = function () {
+    console.log(this.driver)
+    console.log(this.driver.name)
+    console.log(this.driver.document)
+}
+```
+
+Ahora abrir el archivo **Account.js** para agregar el metodo constructor
+
+```
+function Account(name, document) {
+    this.id;
+    this.name = name;
+    this.document = document;
+    this.email;
+    this.password;
+    
+}
+```
+
+En el mismo folder **JS** crear otro archivo llamado **index.js**, este archivo sera el que llame el resto de clases creadas en el folder 
+
+```
+var car = new Car("AMQ123", new Account("Jeyfred Calderon", "JCC1004"))
+car.passenger = 4;
+car.printDataCar();
+```
+
+Ahora abrir el archivo **index.html** en Visual Studio Code se puede instalar una extension llamada LiveServer, luego seleccionar el archivo dar click derecho y seleccionar **Open with Live Server**
+
+![assets/65.png](assets/65.png)
+
+Automaticamente se va a abrir el navegador Chrome y luego cuando este seleccionado el navegador presionar en el tecla **ctrl + shift + i**
+
+alli se va a abrir un panel, seleccionar el que dice **Console** y a continuacion ya se va a mostrar lo que se ha declarado en el objeto car 
+
+![assets/66.png](assets/66.png)
+
+la nueva forma de construir clases en JavaScript seria de la siguiente forma
+
+archivo **Car.js**
+
+```
+/* function Car (license, driver) {
+    this.id;
+    this.license = license;
+    this.driver = driver;
+    this.passenger;
+    
+} 
+
+    Car.prototype.printDataCar = function () {
+    console.log(this.driver)
+    console.log(this.driver.name)
+    console.log(this.driver.document)
+} */ 
+
+
+class Car {
+    constructor (license,driver){
+        this.license = license
+        this.driver = driver
+        this.id
+        this.passenger
+    }
+
+printDataCar = () => {
+    console.log(this.driver)
+    console.log(this.driver.name)
+    console.log(this.driver.document)
+    }
+}
+```
+
+archivo **Account.js**
+
+```
+/* function Account(name, document) {
+    this.id;
+    this.name = name;
+    this.document = document;
+    this.email;
+    this.password;
+    
+} */
+
+class Account{
+    constructor(name, document){
+        this.id
+        this.name = name
+        this.document = document
+        this.email
+        this.password
+    }
+}
+```
+
+Esta es la forma que establece EcmaScript 6
+
+los datos se seguiran cargando de la misma forma
+
+![assets/66.png](assets/66.png)
+
+## Clase 23 Declarando un Método Constructor en Python
+
+En Python encontrarás un concepto denominado Métodos Mágicos, estos métodos son llamados automáticamente y estrictamente bajo ciertas reglas. El método constructor en Python forma parte de esta familia de métodos y como aprendimos en la clase anterior lo declaramos usando `__init__`, aunque si nos ponemos estrictos este método no construye el objeto en sí. El encargado de hacer esto es `__new__` y el método `__init__` se encargará de personalizar la instanciación de la clase, esto significa que lo que esté dentro de `__init__` será lo primero que se ejecute cuando se cree un objeto de esta clase.
+
+Para nuestro proyecto tenemos la necesidad de que algunas variables se inicialicen obligatoriamente cuando ocurra la instanciación. Así que declaremos el método `__init__` en las clases de nuestro proyecto con las propiedades obligatorias.
+
+Para la clase Account quedaría algo así, notarás que usamos la palabra clave self, esta es muy parecida a lo que venimos trabajando a otros lenguajes con this. Y como su nombre lo dice hace referencia a los datos que componen la clase, en este caso self.name está llamando al atributo name que se encuentra en la línea 3 de la clase y, le está asignando el dato que se pasa en el método `__init__` de la línea 8.
+
+```
+class Account:
+    id = int
+    name = str
+    document = str
+    email = str
+    password = str
+
+
+    def __init__(self, name,document):
+        self.name = name
+        self.document = document
+```
+
+Ahora veamos la clase Car:
+
+```
+from account import Account
+
+class Car:
+    id = int
+    license = str
+    driver = Account("", "")
+    passenger = int
+
+    
+    def __init__(self, license, driver):
+        self.license = license
+        self.driver = driver
+```
+
+Lo que notarás de diferente es que cambiamos el tipo de dato de driver, ahora es de tipo Account y como ves está solicitando los dos datos obligatorios para instanciar un objeto de este tipo. Esto lo verás más en acción en el próximo fragmento de código del archivo **main.py**. Además, mucho ojo, en la primera línea observamos que es importante importar la clase para poderla usar.
+
+Nuestro archivo **main.py** ahora se verá así:
+
+```
+from car import Car
+from account import Account
+
+if __name__ == "__main__":
+    print("Hola mundo")
+
+    car = Car("JRM45E", Account("Jeyfred Calderon", "JCC1004"))
+    print(vars(car))
+    print(vars(car.driver))
+```
+
+Observa que estamos importando las dos clases que usaremos y las estamos instaciando en los métodos constructores.
+
+Los resultados serán los siguientes:
+
+![assets/67.png](assets/67.png)
+
+**Nota:** como reto queda pendiente por completar las otras clases de JavaScript y de PHP.
+
+Cualquier duda se pueden observar los archivos en el repositorio
