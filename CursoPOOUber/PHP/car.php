@@ -13,8 +13,7 @@ class Car {
         $this->driver = $driver;
     }
     
-    public function __printDataCar(){
-        echo $this->license;
-        echo $this->driver->name;
+    public function printDataCar(){
+        echo "Licencia: $this->license Driver: ".$this->driver->name;
     }
 }

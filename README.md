@@ -52,7 +52,7 @@ Para resolver un problema como desarrollador es de gran utilidad dividirlo en su
 
 [Clase 24 Aplicando herencia en lenguaje Java y PHP](#Clase-24-Aplicando-herencia-en-lenguaje-Java-y-PHP)
 
-[]()
+[Clase 25 Solución del reto de herencia en PHP](#Clase-25-Solución-del-reto-de-herencia-en-PHP)
 
 []()
 
@@ -1579,3 +1579,134 @@ class UberX extends Car{
 
 **reto:** terminar el resto de clases de PHP
 
+## Clase 25 Solución del reto de herencia en PHP
+
+Se debian crear el resto de clases que faltaban 
+
+- **uberPool.php**
+
+Esta solo cambiar la palabra de la clase y el resto de codigo es igual al de **uberX.php**
+
+```
+<?php
+require_once('car.php');
+class UberPool extends Car{
+    public $brand;
+    public $model;
+
+    public function __construct($license, $driver, $brand, $model){
+        parent::__construct($license, $driver);
+        $this->brand = $brand;
+        $this->model = $model;
+    }
+}
+```
+
+- **uberBlack.php**
+
+En este caso PHP no es un lenguaje estrictamente tipado como lo es **Java**, solamente se crean las variables y se pasan al metodo constructor 
+
+```
+<?php
+require_once('car.php');
+class UberBlack extends Car{
+    public $typeCarAccepted;
+    public $seatsMaterial;
+
+    public function __construct($license, $driver, $typeCarAccepted, $seatsMaterial){
+        parent::__construct($license, $driver);
+        $this->typeCarAccepted = $typeCarAccepted;
+        $this->seatsMaterial = $seatsMaterial;
+    }
+    
+}
+```
+
+- **uberVan.php**
+
+Esta solo cambiar la palabra de la clase y el resto de codigo es igual al de **uberBlack.php**
+
+```
+<?php
+require_once('car.php');
+class UberVan extends Car{
+    public $typeCarAccepted;
+    public $seatsMaterial;
+
+    public function __construct($license, $driver, $typeCarAccepted, $seatsMaterial){
+        parent::__construct($license, $driver);
+        $this->typeCarAccepted = $typeCarAccepted;
+        $this->seatsMaterial = $seatsMaterial;
+    }
+    
+}
+```
+
+la clase **car.php** se modifica el metodo `printDataCar()` de la siguiente forma, tener en cuenta que con un punto `.` se puede concatenar
+
+```
+<?php
+
+require_once('account.php');
+
+class Car {
+    public $id;
+    public $license;
+    public $driver;
+    public $passenger;
+
+    public function __construct($license, $driver){
+        $this->license = $license;
+        $this->driver = $driver;
+    }
+    
+    public function printDataCar(){
+        echo "Licencia: $this->license Driver: ".$this->driver->name;
+    }
+}
+```
+
+Ahora para hacer que funcionen estas clases se debe modificar tambien el archivo **index.php** importando por ahora para probar la clase **uberX.php**
+
+```
+<?php
+
+require_once("car.php");
+require_once("uberX.php");
+require_once("account.php");
+
+$uberX = new UberX("JRM45E ", new Account("Jeyfred Calderon", "JCC1004"), "Chevrolet", "Spark");
+$uberX -> printDataCar();
+
+```
+
+de esta forma estando ubicado en el archivo **index.php**
+
+hacer click derecho sobre cualquier sitio y seleccionar la opcion PHP Server:Serve project, autmaticamente esto abrira un servidor en el navegador para imprimir los datos que se acaban de instancia con el objeto `uberx`
+
+![assets/68.png](assets/68.png)
+
+![assets/69.png](assets/69.png)
+
+Nuevamente se puede crear otro objeto pero esta vez de uberPool modificando el archivo **index.php** de la siguiente forma
+
+```
+<?php
+
+require_once("car.php");
+require_once("uberX.php");
+require_once("uberPool.php");
+require_once("account.php");
+
+$uberX = new UberX("JRM45E ", new Account("Jeyfred Calderon", "JCC1004"), "Chevrolet", "Spark");
+$uberX -> printDataCar();
+
+echo "<br>";
+
+$uberPool = new UberPool("AMQ123 ", new Account("Andrez Gonzalez", "ANDD123"), "Dodge", "Attitude");
+$uberPool -> printDataCar();
+```
+
+El resultado obtenido 
+
+![assets/70.png](assets/70.png)
