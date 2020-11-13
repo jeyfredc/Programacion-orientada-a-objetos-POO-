@@ -66,23 +66,7 @@ Para resolver un problema como desarrollador es de gran utilidad dividirlo en su
 
 [Clase 31 Generando polimorfismo en Java](#Clase-31-Generando-polimorfismo-en-Java)
 
-[]()
-
-[]()
-
-[]()
-
-[]()
-
-[]()
-
-[]()
-
-[]()
-
-[]()
-
-[]()
+[Clase 32 El Diagrama UML de Uber](#Clase-32-El-Diagrama-UML-de-Uber)
 
 
 ## Clase 1 ¿Por qué aprender Programación Orientada a Objetos?
@@ -2361,3 +2345,53 @@ class UberX extends Car {
 Al ejecutar **Main.java** trae la informacion de lo que se establecio en cada una de las clase
 
 ![assets/90.png](assets/90.png)
+
+## Clase 32 El Diagrama UML de Uber
+
+Este es el diagrama que finalmente obtuvimos, aquí solo faltaría añadirle los atributos que posee cada clase.
+
+![assets/91.png](assets/91.png)
+
+Recopilemos todo lo que hemos aprendido para explicar los últimos detalles.
+
+En primer lugar notarás que tenemos 3 tipos de flechas:
+
+**Asociación**
+___
+
+![assets/92.png](assets/92.png)
+
+Como su nombre lo dice, notarás que cada vez que esté referenciada este tipo de flecha significará que ese elemento contiene al otro en su definición. Si recuerdas la clase Car, este contenía una instancia de Driver. La flecha apuntará hacia la dependencia.
+
+![assets/93.png](assets/93.png)
+
+**Herencia**
+___
+
+![assets/94.png](assets/94.png)
+
+Siempre que veamos este tipo de flecha se estará expresando la herencia.
+En nuestro diagrama tuvimos al menos tres familias conviviendo. La dirección de la flecha irá desde el hijo hasta el padre.
+
+**Familia Car**
+
+![assets/95.png](assets/95.png)
+
+**Familia Account**
+
+![assets/96.png](assets/96.png)
+
+**Familia Payment**
+
+![assets/97.png](assets/97.png)
+
+**Composición**
+___
+
+Pasemos a una de nuestras piezas claves, pues notarás en el centro del diagrama la clase Trip que está vinculada a User, Car, Route y Payment. La composición va a significar una asociación entre estas clases con la diferencia de que para que esta clase pueda vivir forzosamente necesita a las demás. Es decir que estas clases son obligatorias para que la clase Trip pueda existir, esta dependencia obligatoria podríamos expresarla en el método constructor de la clase Trip, pues para que un objeto pueda ser creado dependerá de que los demás existan.
+
+![assets/98.png](assets/98.png)
+
+Esta clase Trip poseerá la lógica más fuerte del negocio aquí será donde se concentrarán la mayor cantidad de clases.
+
+Esto es todo nuestro diagrama de clases, que quedó totalmente expresado en nuestro proyecto.
