@@ -64,7 +64,7 @@ Para resolver un problema como desarrollador es de gran utilidad dividirlo en su
 
 [Clase 30 Encapsulando atributos en Java](#Clase-30-Encapsulando-atributos-en-Java)
 
-[]()
+[Clase 31 Generando polimorfismo en Java](#Clase-31-Generando-polimorfismo-en-Java)
 
 []()
 
@@ -1518,20 +1518,21 @@ class UberPool extends Car {
 Para el UberBlack es necesario utilizar dos funciones de la libreria **java.util** para poder importar el ArrayList y el Map y de esta forma pasar los atributos a la clase
 
 ```
-
 import java.util.ArrayList;
 import java.util.Map;
 
 class UberBlack extends Car{
-    Map<String, ArrayList<String,Integer>> typeCarAccepted;
+    Map<String, Map<String,Integer>> typeCarAccepted;
     ArrayList<String> seatsMaterial;
 
-    public UberBlack(String license, Account driver, Map<String, ArrayList<String,Integer>> typeCarAccepted, ArrayList<String> seatsMaterial){
+    public UberBlack(String license, Account driver, Map<String, Map<String,Integer>> typeCarAccepted,ArrayList<String> seatsMaterial){
         super(license, driver);
         this.typeCarAccepted = typeCarAccepted;
-        this.seatsMaterial = seatsMaterial;
+        this.seatsMaterial = seatsMaterial; 
     }
+
 }
+
 ```
 
 - **UberVan.java**
@@ -1541,15 +1542,17 @@ import java.util.ArrayList;
 import java.util.Map;
 
 class UberVan extends Car{
-    Map<String, ArrayList<String,Integer>> typeCarAccepted;
+    Map<String, Map<String,Integer>> typeCarAccepted;
     ArrayList<String> seatsMaterial;
 
-    public UberVan(String license, Account driver, Map<String, ArrayList<String,Integer>> typeCarAccepted, ArrayList<String> seatsMaterial){
+    public UberVan(String license, Account driver, Map<String, Map<String,Integer>> typeCarAccepted,ArrayList<String> seatsMaterial){
         super(license, driver);
         this.typeCarAccepted = typeCarAccepted;
-        this.seatsMaterial = seatsMaterial;
+        this.seatsMaterial = seatsMaterial; 
     }
+
 }
+
 ```
 
 ___
@@ -2199,3 +2202,162 @@ Al imprimir con 3 pasajeros solo saldra lo siguiente
 y si nuevamente se pasan los 4 pasajeros, todos los datos se deberan imprimir
 
 ![assets/84.png](assets/84.png)
+
+## Clase 31 Generando polimorfismo en Java
+
+**Polimorfismo:** Muchas formas. Poli = muchas, morfismo = formas. **NO** es Poliformismo
+
+Es construir métodos con el mismo nombre pero con comportamiento diferente
+
+aqui un ejemplo 
+
+![assets/85.png](assets/85.png)
+
+Ahora para el proyecto de Uber como se mencionaba anteriormente Uberx, UberPool y uberBlack van a tener hasta 4 pasajeros pero uberVan debe tener 6 pasajeros y en la clase UberVan es donde se debe aplicar el **polimorfismo**
+
+Abrir el archivo **Car.java** debajo del metodo setPassenger con el IDE Eclipse dar click derecho como en el ejemplo a continuacion y seleccionar Source -> Generate Getters ans Setters...
+
+![assets/86.png](assets/86.png)
+
+Despues saldra una ventana como la siguiente y alli seleccionar todos los atributos para generar los setters y getters de cada uno y dar click en generate
+
+![assets/87.png](assets/87.png)
+
+automaticamente aparecera los siguientes metodos
+
+```
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getLicense() {
+		return license;
+	}
+
+	public void setLicense(String license) {
+		this.license = license;
+	}
+
+	public Account getDriver() {
+		return driver;
+	}
+
+	public void setDriver(Account driver) {
+		this.driver = driver;
+	}
+```
+
+En el ejempĺo de la clase pasada se ve que uberX esta heredando de la clase Car. Se hace una modificacion a la clase **UberVan.java**
+
+```
+import java.util.ArrayList;
+import java.util.Map;
+
+class UberVan extends Car{
+    Map<String, Map<String,Integer>> typeCarAccepted;
+    ArrayList<String> seatsMaterial;
+
+    public UberVan(String license, Account driver){
+        super(license, driver);
+    }
+
+}
+
+```
+
+y en el archivo **Main.java** se crea el objeto **uberVan** intentado pasar como parametro 6 pasajeros
+
+```
+
+class Main {
+    
+    public static void main(String[] args) {
+        System.out.println("Hola Mundo");
+        UberX uberX = new UberX("AMQ123", new Account("Jeyfred Calderon", "JCC1004"), "Chevrolet", "Spark");
+        uberX.setPassenger(4);
+        uberX.printDataCar();
+        
+        UberVan uberVan = new UberVan("FGH", new Account("Andres Herrera", "AND123"));
+        uberVan.setPassenger(6);
+        uberVan.printDataCar();
+    }
+}
+```
+
+Como el objeto uberVan esta heredando de la clase Car, recibe los mismos metodos y validaciones establecidas en la clase Car, razon por la cual sale el mensaje "Necesitas asignar 4 pasajeros"
+
+![assets/88.png](assets/88.png)
+
+Sin embargo se necesitan asignar para esta clase 6 pasajeros 
+
+en el archivo **UberVan.java** ahora si se utilizara el polimorfismo para sobreescribir el metodo `setPassenger`.
+
+Para detectar que un metodo se esta sobreescribiendo esta `@Override` seguido del metodo y la logica, se debe tener en cuenta que hay que establecer el atributo `private Integer passenger;`, tambien se pueden sobreescribir otros metodos para que salga informacion adicional
+
+```
+import java.util.ArrayList;
+import java.util.Map;
+
+class UberVan extends Car{
+    Map<String, Map<String,Integer>> typeCarAccepted;
+    ArrayList<String> seatsMaterial;
+    private Integer passenger;
+
+    public UberVan(String license, Account driver){
+        super(license, driver);
+    }
+    
+   @Override 
+   public void setPassenger(Integer passenger) {
+       if(passenger == 6){
+           this.passenger = passenger;
+       }
+       else{
+           System.out.println("Necesitas asignar 6 pasajeros");
+       }
+   }
+   
+   @Override
+   void printDataCar(){
+       System.out.println("License: " + license + " Driver: " + driver.name + " Passenger: " + passenger);
+
+   }
+   
+}
+
+```
+
+De esta forma nuevamente al ejecutar el archivo **Main.py** ya no aparecera la validacion y se imprimira la cantidad de pasajeros 
+
+![assets/89.png](assets/89.png)
+
+Tambien se puede sobreescribir el metodo en la clase **Uberx.java** de esta forma dejando la sentencia `super.printDataCar();` para traer el metodo de Car y utilizar tambien atributos propios de la clase 
+
+```
+class UberX extends Car {
+    String brand;
+    String model;
+
+    public UberX(String license, Account driver, String brand, String model){
+        super(license, driver);
+        this.brand = brand;
+        this.model = model;
+
+    }
+    
+    @Override
+    void printDataCar(){
+    	super.printDataCar();
+        System.out.println("Modelo: " + model + " Brand: " + brand);
+
+    }
+}
+```
+
+Al ejecutar **Main.java** trae la informacion de lo que se establecio en cada una de las clase
+
+![assets/90.png](assets/90.png)
